@@ -1,0 +1,127 @@
+:root{
+    --purple_01 : rgb(182, 35, 182);
+    --purple_02 :rgb(165, 22, 165);
+    --purple_03 :rgb(138, 50, 138);
+    --purple_04 : violet;
+    --orange_01 :rgb(206, 85, 29);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    width: 100%;
+    background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url('../image/p3.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 135vh;
+}
+
+.reg-content{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color:white;
+    position: relative;
+}
+
+.reg-content .reg-cont-par{
+padding-left: 10px;
+padding-bottom: 25px;
+font-family: Arial;
+letter-spacing: 1.2px;
+line-height: 30px;
+}
+.reg-content h1{
+    font-family:'Time New Roman';
+    font-size: 50px;
+    padding-left: 10px;
+    margin-top: 9%;
+}
+
+.reg-submit{
+    background-color:  rgb(182, 35, 182);
+    transition: .4s ease;
+}
+
+ .reg-submit a{
+    text-decoration: none;
+    color:rgb(8, 5, 6);
+    transition: .3s ease;
+}
+
+.reg-submit:hover{
+    background-color: white;
+}
+
+.reg-content span{
+    color:violet;
+    font-size: 60px;
+}
+
+.reg-form{
+    width: 450px;
+    height: auto;
+    background: linear-gradient(to top,rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    position: absolute;
+    top:150px;
+    right: 50px;
+    border-radius: 10px;
+    padding:25px;
+
+}
+.reg-form label{
+    color:white;
+    height: 35px;
+    font-size: 20px;
+}
+.reg-form h2{
+    width: 400px;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;/*rgb(165, 22, 165);*/
+    font-size: 32px;
+    background-color: rgb(165, 22, 165); /*rgb(255, 255, 255);*/
+    border-radius: 10px;
+    margin:auto;
+    /* margin-left: 30px; */
+    padding: 8px;
+    transition: .6s ease;
+}
+.reg-form h2:hover{
+    color: rgb(165, 22, 165);
+    background-color: rgb(255, 255, 255);
+}
+.reg-form input{
+    width: 300px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid rgb(138, 50, 138);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.reg-form input:focus{
+         outline: none;
+         
+     }   
+::placeholder{
+         color: #ada1a1;
+         font-family: Arial;
+     }
+
+.reg-form .link {
+    font-size: 18px;
+    color:white;
+    letter-spacing: 1.2px;
+}
+.reg-form .link a:hover{
+    color: rgb(206, 85, 29);
+}
