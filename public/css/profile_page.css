@@ -1,0 +1,248 @@
+:root{
+    --purple_01 : rgb(182, 35, 182);
+    --purple_02 :rgb(165, 22, 165);
+    --purple_03 :rgb(138, 50, 138);
+    --purple_04 : violet;
+    --orange_01 :rgb(206, 85, 29);
+    --pink_01 :  rgb(214, 14, 164);
+}
+
+
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black_02);
+    box-sizing: border-box;
+    width: 100%;
+    background:linear-gradient(to right,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)60%),url('p1.jpg');
+    background-repeat: no-repeat;
+}
+
+.profile-img{
+    position: relative;
+    top:0px;
+    left:30px;
+    height: 250px;
+    width: 250px;
+    border-radius:50%; 
+    /* margin:10px; */
+}
+.profile-img img{
+    position: relative;
+    /* top:25px; */
+    display: block;
+    margin:auto;
+    width:100%;
+    height: 100%; 
+    border-radius:50%;
+
+}
+
+.profile-text{
+    width: 60%;
+    color:beige
+}
+
+p.moto{
+    position: relative;
+    top:50px;
+    padding: 10px 5px;
+    letter-spacing: 2.2px;
+    font-size: 30px;
+    line-height: 35px;
+   
+}
+
+.moto span{
+    color: rgb(24, 224, 214);
+   
+}
+
+.profile-container{
+    background-color:  rgb(27, 27, 22);
+    padding:50px 0px;
+    color:rgb(255, 255, 255);
+    width: 100%;
+}
+
+.profile-container h1{
+    border-bottom-style: solid;
+    border-bottom-color:rgb(126, 115, 115) ;
+    font-size: 25px;
+    margin-bottom: 30px;
+    color: red;
+}
+.profile-container p {
+   margin: 3px 0px;
+    font-size: 18px;
+    word-spacing: 5px;
+}
+
+.personal-detail{
+    position: relative;
+    margin: 0px 100px;
+    margin-bottom: 20px;
+}
+
+.pro-contact{
+    position: relative;
+    margin: 100px 100px;
+    margin-bottom: 10px;
+}
+
+.pro-other{
+    position: relative;
+    margin: 100px 100px;
+}
+
+.pro-tag-name span{
+margin-left: 10px;
+}
+
+
+@media screen and (max-width:730px){
+   .profile{
+        display: flex;
+        flex-direction: column;
+}
+
+}
+
+.pro-form-container{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    visibility: hidden;
+    opacity: 0;
+    
+}
+.modal-active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.pro-modal{
+    color:white;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 5%;
+    background-color:var(--black_03);
+    width: 50%;
+    height: 90vh;
+    box-shadow: 5px 3px 5px black;
+    border-radius: 10px;
+   
+}
+
+.pro-form {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.pro-form-data  {
+    width: 60%;
+    margin:10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+}
+.pro-form-data div {
+    margin:10px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.pro-form-data h1{
+    font-size: 25px;
+    margin: 5px 15px;
+}
+
+input[type=text]{
+    border-radius: 3px;
+ width: 100% ;
+ padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #555;
+  outline: none;
+}
+
+input[type=text]:focus{
+    border-bottom:solid 3px var(--pink_01);
+    border-left: solid 2px var(--pink_01);
+}
+
+textarea{
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+textarea:focus{
+    border-bottom:solid 3px var(--pink_01);
+    border-left: solid 2px var(--pink_01);
+}
+
+.pro-form-data-other {
+
+   width: 100%; 
+   margin-top:100px;
+   display: inline-grid;
+   grid-template-columns: auto auto;
+    
+}
+
+.pro-form-data-other input[type=text]{
+    width: 80%;
+}
+
+.pro-form-data-other div{
+    margin-left: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pro-form .btn{
+    background-color: var(--purple_02);
+    color: white;
+}
+ #p_close_modal ,#c_close_modal,#ot_close_modal {
+    background-color:transparent;
+    border: none;
+    color: white;
+    padding:0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 10px;
+    position:absolute;
+    top: 20px;
+    right: 30px;
+   
+
+}
+
+.pro-edit-button{
+    background-color:rgb(72, 72, 199);
+    color: white;
+    position: absolute;
+    right: 50px;
+    top: 60px;
+    cursor: pointer;
+}

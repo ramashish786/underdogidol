@@ -48,24 +48,25 @@
     <!-- Header end here-->
   <div class="reg-form">
           <h2 class="center reg-tag">Register</h2>
-     <form action="">
+     <form action="reg_handle.php" method="POST">
+
          <div class="center">
-             <input type='text' placeholder="Enter First Name" id="last_name">
+             <input type='text' placeholder="Enter First Name"  name="first_name" id="first_name" required>
          </div>
          <div class="center">
-            <input type='text' placeholder="Enter Last Name" id="first_name">
+            <input type='text' placeholder="Enter Last Name" name="last_name" id="last_name" required>
         </div>
         <div class="center">
             <!-- <label>Email</label> -->
-            <input type='text' placeholder="Enter Email" id="email">
+            <input type='text' placeholder="Enter Email" name="email" id="email" required>
         </div>
         <div class="center">
             <!-- <label>Password</label> -->
-            <input type='text' placeholder="Enter Password" id="password_1">
+            <input type='password' placeholder="Enter Password" name='password_1' id="password_1" required>
         </div>
         <div class="center">
             <!-- <label>Repeat Password</label> -->
-            <input type='text' placeholder="Repeat Password" id="password_2">
+            <input type='password' placeholder="Repeat Password" name="password_2" id="password_2" required>
         </div>
         <div class="center">
             <button class="btn reg-submit">Submit</button>
