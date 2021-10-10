@@ -68,10 +68,10 @@ p.moto{
 
 .profile-container h1{
     border-bottom-style: solid;
-    border-bottom-color:rgb(126, 115, 115) ;
+    border-bottom-color:var(--orange_01) ;
     font-size: 25px;
     margin-bottom: 30px;
-    color: red;
+    
 }
 .profile-container p {
    margin: 3px 0px;

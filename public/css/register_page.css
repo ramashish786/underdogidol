@@ -12,10 +12,10 @@
 }
 .main{
     width: 100%;
-    background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url('../image/p3.jpg');
+    background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(204, 134, 134, 0.5)50%),url('../image/p3.jpg');
     background-position: center;
     background-size: cover;
-    height: 135vh;
+    height: 155vh;
 }
 
 .reg-content{
@@ -110,6 +110,7 @@ line-height: 30px;
 
 .reg-form input:focus{
          outline: none;
+         border: 1px solid rgb(138, 50, 138);
          
      }   
 ::placeholder{
@@ -124,4 +125,8 @@ line-height: 30px;
 }
 .reg-form .link a:hover{
     color: rgb(206, 85, 29);
+}
+
+small {
+    color: red;
 }

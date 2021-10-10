@@ -107,6 +107,10 @@ nav{
     color:var(--white);
     font-size: var(--nav-bar-font_1);
 }
+
+span.user-name{
+    color:white;
+}
 .menu a:hover{
 color: rgb(218, 197, 197);
 border-bottom: solid 2px var(--purple_one);
@@ -258,7 +262,7 @@ list-style: none;
     color: #ffffff;
 
 }
-.footer-col .social-links a{
+.social-links a{
     display: inline-block;
     height: 40px;
     width: 40px;

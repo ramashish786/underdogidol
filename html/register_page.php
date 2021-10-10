@@ -20,15 +20,15 @@
                 <img src="../public/image/logo.png" alt="logo_2">
             </div>
             <div class="menu">
-                <a href="./home_page.html">Home</a>
+                <a href="./home_page.php">Home</a>
                 <a href="#">Contestant</a>
                 <a href="#">Videos</a>
                 <a href="#">About</a>
                 <a href="#">Blogs</a>
                 <a href="#">Contact</a>
                 <a href="#">Help</a>
-                <a href="./register_page.html">Register</a>
-                <a href="./login_page.html">Login</a>
+                <a href="./register_page.php">Register</a>
+                <a href="./login_page.php">Login</a>
             </div>
             <div class="burger">
                 <div class="line-1"></div>
@@ -48,25 +48,31 @@
     <!-- Header end here-->
   <div class="reg-form">
           <h2 class="center reg-tag">Register</h2>
-     <form action="reg_handle.php" method="POST">
-
+     <form action="./reg_handler.php" method='POST' id='form'>
          <div class="center">
-             <input type='text' placeholder="Enter First Name"  name="first_name" id="first_name" required>
+            <label>First name</label>
+             <input type='text' placeholder="Enter First Name" id="last_name">
+             <small></small>
          </div>
          <div class="center">
-            <input type='text' placeholder="Enter Last Name" name="last_name" id="last_name" required>
+            <label>Last name</label>
+            <input type='text' placeholder="Enter Last Name" id="first_name">
+            <small></small>
         </div>
         <div class="center">
-            <!-- <label>Email</label> -->
-            <input type='text' placeholder="Enter Email" name="email" id="email" required>
+            <label>Email</label>
+            <input type='text' placeholder="Enter Email" id="email">
+            <small></small>
         </div>
         <div class="center">
-            <!-- <label>Password</label> -->
-            <input type='password' placeholder="Enter Password" name='password_1' id="password_1" required>
+            <label>Password</label>
+            <input type='text' placeholder="Enter Password" id="password_1">
+            <small></small>
         </div>
         <div class="center">
-            <!-- <label>Repeat Password</label> -->
-            <input type='password' placeholder="Repeat Password" name="password_2" id="password_2" required>
+            <label>Repeat Password</label>
+            <input type='text' placeholder="Repeat Password" id="password_2">
+            <small></small>
         </div>
         <div class="center">
             <button class="btn reg-submit">Submit</button>
@@ -87,6 +93,7 @@
     <!-- footer end here -->
 </div>
     <script src='../public/js/index.js'></script>
+    <script src='../public/js/register.js'></script>
 </body>
 
 </html>

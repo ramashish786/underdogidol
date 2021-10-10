@@ -13,12 +13,12 @@ $password_2= mysqli_real_escape_string($connect , $_POST['password_2']);
     $sql = "INSERT INTO user 
     VALUES('$first_name','$last_name','$email','$password_1');";
     if(mysqli_query($connect,$sql)){
-        header("Location:home_page.html");
-        // echo "s";
+        header("Location:profile_page.html");
+        
     }
     else{
         header("Location:register_page.html");
-        // echo "f";
+    
     }
     
     

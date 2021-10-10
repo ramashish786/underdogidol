@@ -49,6 +49,8 @@ list-style-type: none;
     right: 50px;
     border-radius: 10px;
     padding:25px;
+    border-style: solid;
+    border-color: rgb(138, 50, 138);
 
 }
 .log-form label{
@@ -98,6 +100,12 @@ list-style-type: none;
     margin-top: 30px;
     font-family: sans-serif;
 }
+
+input:focus{
+    outline: none;
+    border: 1px solid rgb(138, 50, 138);
+    
+}   
 
 .log-form input:focus{
          outline: none;

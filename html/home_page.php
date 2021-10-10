@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+session_start();
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -19,15 +22,25 @@
                 <img src="../public/image/logo.png" alt="logo_2">
             </div>
             <div class="menu">
-                <a href="./home_page.html">Home</a>
+                <a href="./home_page.php">Home</a>
                 <a href="#">Contestant</a>
                 <a href="#">Videos</a>
                 <a href="#">About</a>
                 <a href="#">Blogs</a>
                 <a href="#">Contact</a>
                 <a href="#">Help</a>
-                <a href="./register_page.html">Register</a>
-                <a href="./login_page.html">Login</a>
+                <?php
+                if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+                echo"<a href='./register_page.php'>Register</a>";
+                echo"<a href='./login_page.php'>Login</a>";
+                }
+                else{
+                    echo "<span class='user-name>'";
+                    echo $_SESSION['name'];
+                    echo"</span>";
+                    echo "<a href='./logout_page.php'>Logout</a>";
+                }
+                ?>
             </div>
             <div class="burger">
                 <div class="line-1"></div>
@@ -36,7 +49,6 @@
             </div>
         </nav>
     </header>
-
     <div class="slideshow-container">
 
         <div class="mySlides fade">

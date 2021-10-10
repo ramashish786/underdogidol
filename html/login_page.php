@@ -1,6 +1,16 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['loggedin']) || $_SESSION['loggedin']==true){
+    header("Location: ./home_page.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include_once "./login_handler.php" ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,15 +29,15 @@
                 <img src="../public/image/logo.png" alt="logo_2">
             </div>
             <div class="menu">
-                <a href="./home_page.html">Home</a>
+                <a href="./home_page.php">Home</a>
                 <a href="#">Contestant</a>
                 <a href="#">Videos</a>
                 <a href="#">About</a>
                 <a href="#">Blogs</a>
                 <a href="#">Contact</a>
                 <a href="#">Help</a>
-                <a href="./register_page.html">Register</a>
-                <a href="./login_page.html">Login</a>
+                <a href="./register_page.php">Register</a>
+                <a href="./login_page.php">Login</a>
             </div>
             <div class="burger">
                 <div class="line-1"></div>
@@ -43,12 +53,12 @@
         <div class="login-right-side">
             <div class="log-form">
                 <h2>Login</h2>
-                <form action="">
+                <form action="./login_handler.php" method='POST'>
                     <div class="center">
-                        <input type='text' placeholder="User name" id="user_name" onfocus="afterFocus(this)" onblur="afterBlur(this)">
+                        <input type='text' placeholder="User name" name="email" id="email" onfocus="afterFocus(this)" onblur="afterBlur(this)">
                     </div>
                     <div class="center">
-                        <input type='text' placeholder="Password" id="password" onfocus="afterFocus(this)" onblur="afterBlur(this)">
+                        <input type='password' placeholder="Password" name="password" id="password" onfocus="afterFocus(this)" onblur="afterBlur(this)">
                     </div>
                     <div class="center">
                         <button type="submit" class='btn log-submit'> Submit </button>
