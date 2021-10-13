@@ -34,7 +34,7 @@ if ($num == 1){
   if($password===$row['password']){
       $login = true;
       $_SESSION['loggedin'] = true;
-      $_SESSION['name'] = $row['first_name'].$row['last_name'];
+      $_SESSION['name'] = $row['first_name']." ".$row['last_name'];
       $_SESSION['email'] = $row['email'];
       header("Location: ./home_page.php");
   }

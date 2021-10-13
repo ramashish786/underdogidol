@@ -5,15 +5,15 @@
     --black_03:#252525;
     --white: #ffffff;
     --purple_one :  blueviolet;
-    --nav-bar-font_1 : 2.5vh;
-    --nav-bar-font_2: 3vh
+    --nav-bar-font_1 : 15px;
+    --nav-bar-font_2: 20px;
   }
 
 
 body{
     box-sizing:border-box;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
     line-height: 1.2;
     background-color: var(--black_01);
 
@@ -31,8 +31,8 @@ figcaption,
 footer, header, hgroup, menu, nav, output, ruby, section, summary,
 time, mark,
 audio, video {
-margin: 0;
-padding: 0;
+margin: 0px;
+padding: 0px;
 /* border: 0; */
 font-size: 100%;
 vertical-align: baseline;
@@ -49,7 +49,7 @@ padding-left: 1.4em;
 list-style: square;
 } table {
 border-collapse: collapse;
-border-spacing: 0;
+border-spacing: 0px;
 }
 .center {
     width: 60%;
@@ -80,20 +80,23 @@ a{
 
 
 nav{
+    display:absolute;
+    top:0px;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background:linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+    background: black/*linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%)*/;
     align-items: center;
-    height:10vh;
+    height:50px;
 }
 
 .menu{
     display:flex;
     justify-content:space-around;
     width: 80%;
-    padding: 0 1%;
+    padding: 0px 1%;
     align-items: center;
+    height: 30px;
    
 }
 
@@ -101,15 +104,16 @@ nav{
     text-align: center;
     line-height: 2.5vh;
     flex: 1; 
-    margin: 0 1%;
+    margin: 0px 1%;
     padding: 0.5% ;
     width:100%;
     color:var(--white);
     font-size: var(--nav-bar-font_1);
 }
 
-span.user-name{
+.user-name{
     color:white;
+    margin-right: 10px;
 }
 .menu a:hover{
 color: rgb(218, 197, 197);
@@ -117,14 +121,14 @@ border-bottom: solid 2px var(--purple_one);
 }
 
 .logo{
-    width: 20;
+    width: 20px;
     margin-left: 10px;
 }
 
 .logo img{
     align-items: center;
     width: 18vh;
-    height: 12vh;
+    height: 50px;
 }
 .burger div{
     width: 25px;
@@ -136,34 +140,34 @@ border-bottom: solid 2px var(--purple_one);
 .burger{
     display: none;
 }
-@media screen and (max-width:700px){
+@media screen and (max-width:850px){
     body{overflow-x: hidden;}
     .menu{
         transform: translateX(110%);
         position: absolute;
         right: 0px;
-        height: 85vh;
-        top: 10vh;
-        background-color: rgb(51, 53, 50);
+        height: 500px;
+        top: 50px;
+        background-color:black;
         width: 45%;
         display: flex;
         flex-direction: column;
         text-align: center;
-        opacity: 0.7;
-        border-radius: 5px;
+        border-radius: 0px;
         z-index:90;
         
     }
-
+.user-name {
+    margin:10px;
+    font-size: 20px;
+}
 .menu a{
     padding: 5% ;
     margin-bottom: 10px;
     font-size: var(--nav-bar-font_2);
 }
 .menu a:hover{
-    background-color:black;
-    border-left-width: 60px;
-    border-left-color: white;
+    background-color:rgb(70, 61, 61);
 }
 .burger {
     display: block;
@@ -171,11 +175,6 @@ border-bottom: solid 2px var(--purple_one);
  }
 }
 
-@media screen and (max-height:300){
-    .menu{
-        top:40%;
-    }
-}
 .show{
     transition: transform 0.5s ease-in;
     transform: translateX(0%);
@@ -267,7 +266,7 @@ list-style: none;
     height: 40px;
     width: 40px;
     background-color: rgba(255,255,255,0.2);
-    margin:0 10px 10px 0;
+    margin:0px 10px 10px 0px;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;

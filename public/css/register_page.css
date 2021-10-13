@@ -3,16 +3,12 @@
     --purple_02 :rgb(165, 22, 165);
     --purple_03 :rgb(138, 50, 138);
     --purple_04 : violet;
-    --orange_01 :rgb(206, 85, 29);
+    --orange_01 :rgb(187, 130, 104);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-}
 .main{
     width: 100%;
-    background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(204, 134, 134, 0.5)50%),url('../image/p3.jpg');
+    background: linear-gradient(to top,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url('../image/p3.jpg');
     background-position: center;
     background-size: cover;
     height: 155vh;
@@ -129,4 +125,38 @@ line-height: 30px;
 
 small {
     color: red;
+    font-family: inherit;
+    letter-spacing: 1.2px;
+}
+
+.reg-container {
+    display: block;
+}
+
+@media screen and (max-width:1020px) {
+    
+    .reg-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reg-form{
+        position: absolute;
+        top:500px;
+       margin-left: auto;
+       margin-right: auto;
+    }
+
+    .main{
+        height:270vh;
+    }
+    .reg-content{
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+input.error {
+    outline: none;
+    border: 1px solid red; 
 }

@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
+    header("location : ./home_page.php");
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,27 +60,27 @@
      <form action="./reg_handler.php" method='POST' id='form'>
          <div class="center">
             <label>First name</label>
-             <input type='text' placeholder="Enter First Name" id="last_name">
+             <input type='text' placeholder="Enter First Name" id="first_name"  name= "first_name">
              <small></small>
          </div>
          <div class="center">
             <label>Last name</label>
-            <input type='text' placeholder="Enter Last Name" id="first_name">
+            <input type='text' placeholder="Enter Last Name" id="last_name" name="last_name" >
             <small></small>
         </div>
         <div class="center">
             <label>Email</label>
-            <input type='text' placeholder="Enter Email" id="email">
+            <input type='text' placeholder="Enter Email" id="email" name="email">
             <small></small>
         </div>
         <div class="center">
             <label>Password</label>
-            <input type='text' placeholder="Enter Password" id="password_1">
+            <input type='password' placeholder="Enter Password" name="password_1" id="password_1">
             <small></small>
         </div>
         <div class="center">
             <label>Repeat Password</label>
-            <input type='text' placeholder="Repeat Password" id="password_2">
+            <input type='password' placeholder="Repeat Password" name="password_2" id="password_2">
             <small></small>
         </div>
         <div class="center">

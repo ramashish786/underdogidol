@@ -35,10 +35,10 @@ session_start();
                 echo"<a href='./login_page.php'>Login</a>";
                 }
                 else{
-                    echo "<span class='user-name>'";
+                    echo "<a href='./logout_page.php'>Logout</a>";  
+                 ;echo "<span class='user-name'>";
                     echo $_SESSION['name'];
                     echo"</span>";
-                    echo "<a href='./logout_page.php'>Logout</a>";
                 }
                 ?>
             </div>
