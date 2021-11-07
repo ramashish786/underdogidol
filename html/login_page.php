@@ -26,12 +26,12 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
             </div>
             <div class="menu">
                 <a href="./home_page.php">Home</a>
-                <a href="#">Contestant</a>
-                <a href="#">Videos</a>
-                <a href="#">About</a>
-                <a href="#">Blogs</a>
-                <a href="#">Contact</a>
-                <a href="#">Help</a>
+                <a href="./contestant_page.php">Contestant</a>
+                <a href="./video_page.php">Videos</a>
+                <a href="./about_page.php">About</a>
+                <a href="./blog_page.php">Blogs</a>
+                <a href="./contact_page.php">Contact</a>
+                <a href="./help_page.php">Help</a>
                 <a href="./register_page.php">Register</a>
                 <a href="./login_page.php">Login</a>
             </div>
@@ -49,6 +49,14 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
         <div class="login-right-side">
             <div class="log-form">
                 <h2>Login</h2>
+                <?php
+                if(!empty($_SESSION['showError'])){
+                    echo "<div class='center'><p class='error'>";
+                    echo $_SESSION['showError'];
+                    echo "</p></div>";
+                }
+                $_SESSION['showError'] = "" ;
+                ?>
                 <form action="./login_handler.php" method='POST'>
                     <div class="center">
                         <input type='text' placeholder="User name" name="email" id="email" onfocus="afterFocus(this)" onblur="afterBlur(this)">
@@ -57,11 +65,12 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
                         <input type='password' placeholder="Password" name="password" id="password" onfocus="afterFocus(this)" onblur="afterBlur(this)">
                     </div>
                     <div class="center">
-                        <button type="submit" class='btn log-submit'> Submit </button>
+                        <button type="submit" class='btn log-submit'> Login </button>
                     </div>
                 </form>
             <div class="center">
-                <h3>Login with social media </h3>
+           
+            <h3>Login with social media </h3> 
             <ul class="sci">
                 <li><img src="../public/image/facebook.png" alt=""></li>
                 <li><img src="../public/image/instagram.png" alt=""></li>
@@ -73,6 +82,7 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
         </div>
     </div>
 <script src='../public/js/index.js'></script>
+
 </body>
 
 </html>

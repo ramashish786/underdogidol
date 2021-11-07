@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['loggedin']) ==NULL|| empty($_SESSION['loggedin'])){
+    header("Location: ./home_page.php");
+    exit;
+}
+?>
+<?php  include_once '../config/connectDB.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +30,23 @@
                 <a href="#">Home</a>
                 <a href="#">Contestant</a>
                 <a href="#">Videos</a>
-                <a href="#">About</a>
+                <a href="./about_page.php">About</a>
                 <a href="#">Blogs</a>
                 <a href="#">Contact</a>
                 <a href="#">Help</a>
-                <a href="#">Register</a>
-                <a href="#">Login</a>
+                <?php
+                if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+                echo"<a href='./register_page.php'>Register</a>";
+                echo"<a href='./login_page.php'>Login</a>";
+                }
+                else{
+                    echo "<a href='#'>Dashborad</a>";
+                    echo "<a href='./logout_page.php'>Logout</a>";  
+                    echo "<span class='user-name'>";
+                    echo $_SESSION['name'];
+                    echo"</span>";
+                }
+                ?>
             </div>
             <div class="burger">
                 <div class="line-1"></div>
@@ -46,31 +65,76 @@
 
     </div>
     <div class="profile-container">
-        <div class="personal-detail">
-
+    <div class='personal-detail'>
             <h1>Personal Details</h1>
             <button class='pro-edit-button btn' id='pro_edit_pd'>Edit</button>
-            <p class="pro-tag-name" id='user-name'>Name : <span>Jack Johnson </span></p>
-            <p class="pro-tag-name" id='user-stage-name'>Satage Name : <span>Jacky </span></p>
-            <p class="pro-tag-name" id='user-age'>Age : <span>25 </span></p>
-            <p class="pro-tag-name" id='user-address'>Address : <span>washington</span></p>
-
+        <?php 
+        $user_email = $_SESSION['email'];
+        $sql = "SELECT name,stage_name,age,address,email_id FROM personal_detail WHERE email_id='$user_email';";
+         $result = mysqli_query($connect,$sql);
+         if($result){
+            $isresult = mysqli_num_rows($result);
+            }
+         else{
+            $isresult = -1;
+        }
+        if($isresult > 0){
+            $personal = mysqli_fetch_assoc($result);
+           echo"
+            <p class='pro-tag-name' id='user-name'>Name : <span>".$personal['name']."</span></p>
+            <p class='pro-tag-name' id='user-stage-name'>Satage Name : <span>".$personal['stage_name'] ."</span></p>
+            <p class='pro-tag-name' id='user-age'>Age : <span>".$personal['age']."</span></p>
+            <p class='pro-tag-name' id='user-address'>Address : <span>".$personal['address']."</span></p>
+            ";
+        }else{
+            echo"
+                <p class='pro-tag-name' id='user-name'>Name : <span>No Data available</span></p>
+                <p class='pro-tag-name' id='user-stage-name'>Satage Name : <span>No Data available</span></p>
+                <p class='pro-tag-name' id='user-age'>Age : <span>No Data available</span></p>
+                <p class='pro-tag-name' id='user-address'>Address : <span>No Data available</span></p>
+            ";
+        }
+        ?>
         </div>
         <div class="pro-contact">
             <h1> Contact</h1>
             <button class='pro-edit-button btn' id='pro_edit_c'>Edit</button>
-            <p class="pro-tag-name" id='user-email'>Email: <span>jacky456@gmail.com</span></p>
+            <p class="pro-tag-name" id='user-email'>Email: <span><?php echo $user_email;?></span></p>
         </div>
         <div class="pro-other">
-            <h1>Other</h1>
-            <button class='pro-edit-button btn' id='pro_edit_ot'>Edit</button>
-            <p class="pro-tag-name">Favorite Singer: <span>Jack Johnson </span></p>
-            <p class="pro-tag-name">Favorite Band: <span>Jack Johnson </span></p>
-            <p class="pro-tag-name">Favorite Color: <span>Jack Johnson </span></p>
-            <p class="pro-tag-name">Favorite Actor: <span>Jack Johnson </span></p>
-            <p class="pro-tag-name">Favorite Actress: <span>Jack Johnson </span></p>
-            <p class="pro-tag-name">Favorite Food: <span>Jack Johnson </span></p>
-
+        <h1>Other</h1>
+        <button class='pro-edit-button btn' id='pro_edit_ot'>Edit</button>
+            <?php 
+            $user_email = $_SESSION['email'];
+            $sql = "SELECT favourite_singer,favourite_band,favourite_color,favourite_food,favourite_actress,favourite_actor FROM other_detail WHERE email_id='$user_email';";
+             $result = mysqli_query($connect,$sql);
+             if($result){
+                $isresult = mysqli_num_rows($result);
+                }
+             else{
+                $isresult = -1;
+            }
+            if($isresult > 0){
+                $other = mysqli_fetch_assoc($result);
+            echo"
+            <p class='pro-tag-name'>Favorite Singer: <span>".$other['favourite_singer']."</span></p>
+            <p class='pro-tag-name'>Favorite Band: <span>".$other['favourite_band']."</span></p>
+            <p class='pro-tag-name'>Favorite Color: <span>".$other['favourite_color']."</span></p>
+            <p class='pro-tag-name'>Favorite Actor: <span>".$other['favourite_food']."</span></p>
+            <p class='pro-tag-name'>Favorite Actress: <span>".$other['favourite_actress']." </span></p>
+            <p class='pro-tag-name'>Favorite Food: <span>".$other['favourite_actor']." </span></p>
+            ";
+        }else{
+            echo"
+            <p class='pro-tag-name'>Favorite Singer: <span>No Data Available</span></p>
+            <p class='pro-tag-name'>Favorite Band: <span>No Data Available</span></p>
+            <p class='pro-tag-name'>Favorite Color: <span>No Data Available</span></p>
+            <p class='pro-tag-name'>Favorite Actor: <span>No Data Available</span></p>
+            <p class='pro-tag-name'>Favorite Actress: <span>No Data Available </span></p>
+            <p class='pro-tag-name'>Favorite Food: <span>No Data Available </span></p>
+            ";
+            }
+    ?>
         </div>
     </div>
 
@@ -78,24 +142,26 @@
     <div class="pro-form-container" id='personal_detail'>
         <div class="pro-modal">
             <button id='p_close_modal'>x</button>
-            <form action="" class="pro-form">
+            <form action="./personal_detail.php" method = "POST" class="pro-form">
                 <div class="pro-form-data">
                     <h1>Personal detail</h1>
                     <div>
                         <label for="">Name</label>
-                        <input type="text" name="user_name">
+                        <input type="text" name="user_name" value="<?php echo $personal['name'];?>" id="user_name">
                     </div>
                     <div>
                         <label>Stage Name</label>
-                        <input type="text" name='user_stage_name'>
+                        <input type="text" name='user_stage_name' value="<?php echo $personal['stage_name'];?>"  id='user_stage_name'>
                     </div>
                     <div>
                         <label for=""> age</label>
-                        <input type="text" name='age'>
+                        <input type="text" name='age' value="<?php echo $personal['age'];?>" id='age'>
                     </div>
                     <div>
                         <label for="">Address</label>
-                        <textarea name='address'></textarea>
+                        <textarea name='address'  id='address'>
+                        <?php echo $personal['address'];?>
+                        </textarea>
                     </div>
 
                 </div>
@@ -110,7 +176,7 @@
     <div class="pro-form-container" id='contact_detail'>
         <div class="pro-modal">
             <button id='c_close_modal'>x</button>
-            <form action="" class="pro-form">
+            <form action="" method = "POST" class="pro-form">
                 <div class="pro-form-data">
                     <div style="display: flex;flex-direction: column; margin-top:15px ;">
                         <h1>Contact</h1>
@@ -130,32 +196,32 @@
     <div class="pro-form-container" id='other_detail'>
         <div class="pro-modal">
             <button id='ot_close_modal'>x</button>
-            <form action="" class="pro-form">
+            <form action="./other_detail.php" method="POST" class="pro-form">
                 <h1 style="margin-top:20px">Other</h1>
                 <div class="pro-form-data-other">
                     <div>
                         <label for="">Favorite Singer</label>
-                        <input type="text" name='user_fav_singer'>
+                        <input type="text" name='user_fav_singer' value="<?php echo $other['favourite_singer'];?>" >
                     </div>
                     <div>
                         <label for="">Favorite Band</label>
-                        <input type="text" name='user_fav_band'>
+                        <input type="text" name='user_fav_band' value="<?php echo $other['favourite_band'];?>">
                     </div>
                     <div>
                         <label for=""> Favorite Color </label>
-                        <input type="text" name='user_fav_color'>
+                        <input type="text" name='user_fav_color' value="<?php echo $other['favourite_color'];?> ">
                     </div>
                     <div>
                         <label for=""> Favorite Actor </label>
-                        <input type="text" name='user_fav_actor'>
+                        <input type="text" name='user_fav_actor' value="<?php echo $other['favourite_actor'];?> ">
                     </div>
                     <div>
                         <label for=""> Favorite Actress </label>
-                        <input type="text" name='user_fav_actress'>
+                        <input type="text" name='user_fav_actress' value="<?php echo $other['favourite_actress'];?>">
                     </div>
                     <div>
                         <label for="">Favorite Food </label>
-                        <input type="text" name='user_fav_food'>
+                        <input type="text" name='user_fav_food' value="<?php echo $other['favourite_food'];?>">
                     </div>
                 </div>
 

@@ -30,12 +30,12 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
             </div>
             <div class="menu">
                 <a href="./home_page.php">Home</a>
-                <a href="#">Contestant</a>
-                <a href="#">Videos</a>
-                <a href="#">About</a>
-                <a href="#">Blogs</a>
-                <a href="#">Contact</a>
-                <a href="#">Help</a>
+                <a href="./contestant_page.php">Contestant</a>
+                <a href="./video_page.php">Videos</a>
+                <a href="./about_page.php">About</a>
+                <a href="./blog_page.php">Blogs</a>
+                <a href="./contact_page.php">Contact</a>
+                <a href="./help_page.php">Help</a>
                 <a href="./register_page.php">Register</a>
                 <a href="./login_page.php">Login</a>
             </div>
@@ -57,33 +57,33 @@ if(isset($_SESSION['loggedin']) || !empty($_SESSION['loggedin'])){
     <!-- Header end here-->
   <div class="reg-form">
           <h2 class="center reg-tag">Register</h2>
-     <form action="./reg_handler.php" method='POST' id='form'>
+     <form action="./reg_handler.php" method='POST' id='form' onsubmit="return checkInputs()">
          <div class="center">
             <label>First name</label>
              <input type='text' placeholder="Enter First Name" id="first_name"  name= "first_name">
-             <small></small>
+             <span></span>
          </div>
          <div class="center">
             <label>Last name</label>
             <input type='text' placeholder="Enter Last Name" id="last_name" name="last_name" >
-            <small></small>
+            <span></span>
         </div>
         <div class="center">
             <label>Email</label>
             <input type='text' placeholder="Enter Email" id="email" name="email">
-            <small></small>
+            <span></span>
         </div>
         <div class="center">
             <label>Password</label>
             <input type='password' placeholder="Enter Password" name="password_1" id="password_1">
-            <small></small>
+            <span></span>
         </div>
         <div class="center">
             <label>Repeat Password</label>
             <input type='password' placeholder="Repeat Password" name="password_2" id="password_2">
-            <small></small>
+            <span></span>
         </div>
-        <div class="center">
+pan    <div class="center">
             <button class="btn reg-submit">Submit</button>
         </div>
      </form>

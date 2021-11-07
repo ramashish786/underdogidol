@@ -30,24 +30,23 @@ else{
 
 if ($num == 1){
   $row = mysqli_fetch_assoc($result);
-  echo $row;
   if($password===$row['password']){
       $login = true;
       $_SESSION['loggedin'] = true;
       $_SESSION['name'] = $row['first_name']." ".$row['last_name'];
-      $_SESSION['email'] = $row['email'];
+      $_SESSION['email'] = $row['email_id'];
       header("Location: ./home_page.php");
   }
 else{
-  $showError = "Invalid Credentials";
-  // header("location: ./login_page.php");
+  $_SESSION['showError'] = "Invalid password";
+  header("location: ./login_page.php");
 }
 
 } 
 else{
-  $showError = "Invalid Credentials";
-  // header("location: ./login_page.php");
+  $_SESSION['showError'] = "User does not exist";
+  header("location: ./login_page.php");
 }
 }
-// echo $_SESSION['name'];
+
 ?>
